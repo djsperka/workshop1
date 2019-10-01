@@ -118,20 +118,28 @@ point in development.
     
 1. merge and rebase
 
+    Once you've branched, you can use *merge* and *rebase* to recombine the changes
+    in one branch with another in different ways. 
+    
+    Use *merge* to incorporate the changes from one branch into another branch. Git will attempt
+    to apply all changes along a branch to another branch, creating one big commit. The two 
+    branches are now combined. 
 
-    Use *merge* to incorporate the changes from one branch into another branch. 
-    A "rebase" replays the changes in a branch from a *different starting point* 
-    Normally, you'd rebase a branch off of "master" back to the tip of "master". 
-    After a rebase, the commits in your branch will (likely) have new hashes. 
-    
-    A "merge" applies the changes in a given "source" branch to another "target" branch. 
-    The "target" branch is changed - the "source" branch us unchanged.
-    
-    TODO check this!
-    
     ```shell
     # two-step merge
     git checkout master
     git merge feature
     ```
+
+    Use *rebase* to move the branch point of a branch to another location. If you develop along a branch, 
+    but changes are also made to the main branch, a rebase can be used to *replay* the commits from the branch 
+    *starting at the tip of the main branch*
     
+    ```shell
+    # rebase newanalysis branch onto master branch
+    git checkout newanalysis
+    git rebase master
+    ```
+    
+
+
