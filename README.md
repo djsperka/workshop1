@@ -115,6 +115,7 @@ point in development.
     
     # Verify what you've done - not required
     git status
+    ```
     
 1. merge and rebase
 
@@ -180,7 +181,7 @@ If working with a partner, you choose one of you to be "owner" first, and one to
     cd clone_directory
 
     # modify file
-    nano paper.txt   (edit here)
+    nano paper.txt #  (edit here)
     
     # add to index and commit - this commits change to *local repo*, not the *origin*.
     git add paper.txt
@@ -195,7 +196,7 @@ If working with a partner, you choose one of you to be "owner" first, and one to
     # push to remote - assuming we are on *master* branch. 
     git push origin master
     
-    This will create a clone of the repo in a folder named "my_workshop1". 
+    # This will create a clone of the repo in a folder named "my_workshop1". 
 
 1. **Owner** - pull changes to your local repo
 
