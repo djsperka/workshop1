@@ -75,7 +75,12 @@ point in development.
 
     ```shell
     git status
-    
+    ```
+
+    You should see something like:
+
+
+    ``` 
     On branch master
     Your branch is up to date with 'origin/master'.
     
