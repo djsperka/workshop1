@@ -142,4 +142,85 @@ point in development.
     ```
     
 
+# Git Workshop - Day 2
 
+## Git review
+
+### Vocabulary
+
+- **commit (n.)** A single point in the project history. "The entire history of a project is represented as a set of interrelated commits."
+- **repo** (repository), a database of "commits" along with "refs" (used for navigation, branches, etc) to navigate history
+- **checkout** The action of updating the working directory, index, and HEAD using a particular commit in the repo.
+- **index** The **staging area** used to prepare the next commit. The next **commit** will include the changes you choose to add (using *git add*) to the index, and it will represent the state of your project after those changes area applied. 
+- **merge** (v.) to bring the contents of another branch into the current branch.
+- **master** main development branch
+- **remote (repository)** A repo used to track the same project, but resides elsewhere (use with fetch, pull, push)
+- **origin** default upstream repo
+
+
+### Collaboration
+
+To try out these steps, you can do it by yourself by opening a second command window. Each window represents a "collaborator", or else it represents "you" working on different machines or in different locations. 
+
+If working with a partner, you choose one of you to be "owner" first, and one to be "collaborator" first. After working through the steps, switch roles. 
+
+1. **Owner** - on Github, give collaborator access to update your repo. On Github repo, select "Settings>Collaborators", and search for your partner by username, email, etc. Collaborator may receive an email - they need to accept/confirm the invite. If not, collaborator should go to http://github.com/notifications to find it. 
+
+1. **Collaborator** - after accepting invitation to collaborate, you should clone the **Owner's** repo:
+
+    ```shell
+    git clone https://github.com/djsperka/workshop1.git my_workshop1
+    ```
+    
+    Replace *djsperka* with the **Owner's** username, and replace *workshop1.git* with the **Owner's** repository name (add the .git extension). The folder name is up to you - if you omit it, git will clone the repo in a folder of the same base name as the repo (*workshop1* in my example). In my example, the repo is cloned into a folder named *my_workshop1*. 
+    
+1. **Collaborator** - make a change to a file in the repo as before, add and commit. 
+
+    ```shell
+    cd clone_directory
+
+    # modify file
+    nano paper.txt   (edit here)
+    
+    # add to index and commit - this commits change to *local repo*, not the *origin*.
+    git add paper.txt
+    git commit -m "Change made by collaborator"
+    
+1. **Collaborator** - push change to remote repo - i.e. the **Owner's** repo on Github. 
+
+    ```shell
+    # (not require) check remotes
+    git remote -v
+    
+    # push to remote - assuming we are on *master* branch. 
+    git push origin master
+    
+    This will create a clone of the repo in a folder named "my_workshop1". 
+
+1. **Owner** - pull changes to your local repo
+
+    ```shell
+    # pull master branch updates from remote
+    git pull origin master
+    
+    
+### Basic Collaboration workflow
+
+When collaborating, its important to update your local repo with any changes on the remote *before* starting to work. You can/should continue to do this regularly (depending on the pace of development/changes of course). 
+
+Basic workflow:
+
+- update local repo with **git pull origin master**
+- make changes, stage them with **git add filename**
+- commit changes with **git commit -m "message"**
+- push to remote with **git push origin master**
+
+### Collaboration failure
+
+If a change is committed to the remote while you are working on *the same file*, you will have a conflict when you try to *push*. The basic workflow to *correct a push conflict* is:
+
+- pull changes to local repo (git will point out conflict)
+- resolve conflict by editing the file (it will contain your changes and the *other* changes - remove "<<<<", ">>>>", "====", etc, and save file in **the final state you want, incorporating your changes and the other conflicting changes*
+- stage with **git add filename**
+- commit with **git commit -m "comment"**
+- push to remote with **git push origin master**
