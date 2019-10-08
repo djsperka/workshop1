@@ -191,6 +191,7 @@ If working with a partner, you choose one of you to be "owner" first, and one to
     # add to index and commit - this commits change to *local repo*, not the *origin*.
     git add paper.txt
     git commit -m "Change made by collaborator"
+    ```
     
 1. **Collaborator** - push change to remote repo - i.e. the **Owner's** repo on Github. 
 
@@ -202,14 +203,15 @@ If working with a partner, you choose one of you to be "owner" first, and one to
     git push origin master
     
     # This will create a clone of the repo in a folder named "my_workshop1". 
+    ```
 
 1. **Owner** - pull changes to your local repo
 
     ```shell
     # pull master branch updates from remote
     git pull origin master
-    
-    
+    ```    
+
 ### Basic Collaboration workflow
 
 When collaborating, its important to update your local repo with any changes on the remote *before* starting to work. You can/should continue to do this regularly (depending on the pace of development/changes of course). 
