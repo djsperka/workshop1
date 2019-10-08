@@ -5,3 +5,5 @@ Now I've added a third line (again).
 This is a reference to a plot. 
 [notational gobbledygook]
 And another important point added. Killing it here. 
+
+Dan is a huge Chicago Bears fan!
